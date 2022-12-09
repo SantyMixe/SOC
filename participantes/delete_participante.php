@@ -50,7 +50,7 @@ if (isset($_SESSION['u_user'])) {
         <div
             class="preloader flex-column justify-content-center align-items-center">
             <img class="animation__wobble"
-                src="<?php echo $URL; ?>/app/template/dist/img/AdminLTELogo.png"
+                src="<?php echo $URL; ?>/app/template/dist/img/unedl.png"
                 alt="AdminLTELogo" height="60" width="60">
         </div>
 
@@ -239,7 +239,7 @@ if (isset($_SESSION['u_user'])) {
                     <br>
                     <div class="card-footer">
                         <center>
-                            <a href="<?php echo $URL;?>invitado/"
+                            <a href="<?php echo $URL;?>participantes/"
                                 class="btn btn-lg btn-info">Cancelar</a>
                             <a href="<?php echo $URL;?>controllers/controller_participantes/controller_delete_participante.php?id_partic=<?php echo $id;?>"
                                 class="btn btn-lg btn-danger">Eliminar</a>

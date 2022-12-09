@@ -9,7 +9,7 @@
         <img src="<?php echo $URL; ?>/app/template/dist/img/unedl.png"
             alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
             style="opacity: .8">
-        <span class="brand-text font-weight-light">Sistema Congreso</span>
+        <span class="brand-text font-weight-light">SOC-Unedl</span>
     </a>
 
     <!-- Sidebar -->
@@ -233,7 +233,112 @@
                 </li>
             </ul>
         </nav>
+        <?php
+        }if($cargo_session=="Prefect@") {
+            ?>
         <!-- /.sidebar-menu -->
+        <nav class="mt-2 ">
+            <ul class="nav nav-pills nav-sidebar flex-column "
+                data-widget="treeview" role="menu" data-accordion="false">
+                <!-- Add icons to the links using the .nav-icon class
+                   with font-awesome or any other icon font library -->
+                <li class="nav-item ">
+                    <a href="#" class="nav-link active">
+                        <i class="nav-icon fas fa-solid fa-clipboard"></i>
+                        <p>
+                            Convocatoria
+                            <i class="right fas fa-angle-left"></i>
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="<?php echo $URL; ?>convocatoria/"
+                                class="nav-link">
+                                <i
+                                    class="nav-icon fas fa-solid fa-person-chalkboard"></i>
+                                <p>Convocatorias</p>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <br>
+                <li class="nav-item ">
+                    <a href="#" class="nav-link active">
+                        <i class="nav-icon fas fa-solid fa-users-line"></i>
+                        <p>
+                            Invitados
+                            <i class="right fas fa-angle-left"></i>
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview ">
+                        <li class="nav-item">
+                            <a href="<?php echo $URL; ?>invitado/"
+                                class="nav-link">
+                                <i
+                                    class="nav-icon fas fa-solid fa-users-viewfinder"></i>
+                                <p>Invitados Registrados</p>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <br>
+                <li class="nav-item ">
+                    <a href="#" class="nav-link active">
+                        <i class="nav-icon fas fa-solid fa-calendar-days"></i>
+                        <p>
+                            Eventos
+                            <i class="right fas fa-angle-left"></i>
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="<?php echo $URL; ?>eventos/"
+                                class="nav-link">
+                                <i class=" nav-icon fas fa-calendar"></i>
+                                <p> Eventos Registrado</p>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <br>
+                <li class="nav-item ">
+                    <a href="#" class="nav-link active">
+                        <i class="nav-icon fas fa-solid fa-people-group"></i>
+                        <p>
+                            Participantes
+                            <i class="right fas fa-angle-left"></i>
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="<?php echo $URL; ?>participantes/"
+                                class="nav-link">
+                                <i
+                                    class=" nav-icon fas fa-solid fa-people-roof "></i>
+                                <p>Participantes</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="<?php echo $URL; ?>participantes/participante_aprob.php"
+                                class="nav-link">
+                                <i
+                                    class="nav-icon fas fa-solid fa-user-check "></i>
+                                <p>participantes Aprobados</p>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+        </nav>
+        <?php
+        }if($cargo_session=="Maestro") {
+            ?>
+        <!-- /.sidebar-menu -->
+        <nav class="mt-2 ">
+            <ul class="nav nav-pills nav-sidebar flex-column "
+                data-widget="treeview" role="menu" data-accordion="false">
+                <!-- Add icons to the links using the .nav-icon class
+                   with font-awesome or any other icon font library -->
+        </nav>
         <?php
         }
         ?>

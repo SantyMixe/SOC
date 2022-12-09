@@ -12,7 +12,7 @@ session_start();
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Bienvenido a Sistema Congreso</title>
+    <title>Bienvenido a SOC-Unedl</title>
     <?php include('layout/head.php'); ?>
 </head>
 
@@ -28,8 +28,7 @@ session_start();
                         alt="AdminLTE Logo"
                         class="brand-image img-circle elevation-3"
                         style="opacity: .8">
-                    <span class="brand-text font-weight-light">Sistema
-                        Congreso</span>
+                    <span class="brand-text font-weight-light">SOC-Unedl</span>
                 </a>
 
                 <button class="navbar-toggler order-1" type="button"
@@ -78,7 +77,9 @@ session_start();
                 <div class="">
                     <div class="row mb-2">
                         <div class="col-sm-6">
-                            <h1 class="m-0"> Bienvenido al Congreso</h1>
+                            <h1 class="m-0"> Bienvenido al Sistema para la
+                                Organización de
+                                Congresos</h1>
                         </div><!-- /.col -->
                     </div><!-- /.row -->
                 </div><!-- /.container-fluid -->
@@ -132,8 +133,9 @@ session_start();
                                         
                                           ?>
                                     <center><img
-                                            src="<?php echo $URL;?>public/img/perfil.png"
-                                            width="30px" alt=""></center>
+                                            src="<?php echo $URL;?>public/img/conferencia.png"
+                                            style="width: 200px; height: 150px;"
+                                            alt=""></center>
                                     <?php
                                         }
                                       ?>

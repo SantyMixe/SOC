@@ -40,7 +40,7 @@ if (isset($_SESSION['u_user'])) {
         <div
             class="preloader flex-column justify-content-center align-items-center">
             <img class="animation__wobble"
-                src="<?php echo $URL; ?>/app/template/dist/img/AdminLTELogo.png"
+                src="<?php echo $URL; ?>/app/template/dist/img/unedl.png"
                 alt="AdminLTELogo" height="60" width="60">
         </div>
 
@@ -105,7 +105,7 @@ include('../layout/menu.php');
                 <div class="container-fluid">
                     <div class="row mb-2">
                         <div class="col-sm-6">
-                            <h1 class="m-0">Particpante</h1>
+                            <h1 class="m-0">Eventos</h1>
                         </div><!-- /.col -->
                     </div><!-- /.row -->
                 </div><!-- /.container-fluid -->
@@ -116,7 +116,7 @@ include('../layout/menu.php');
             <section class="content">
                 <div class="card">
                     <div class="card-header">
-                        <h3 class="card-title">Participantes Registrados
+                        <h3 class="card-title">Lista Eventos Aprobados
                         </h3>
                     </div>
                     <!-- /.card-header -->
@@ -130,21 +130,35 @@ include('../layout/menu.php');
                                     <th>Tema Seleccionado</th>
                                     <th>Nombres</th>
                                     <th>Horario</th>
-                                    <th>Ubicacion</th>
+                                    <th>Ubicación</th>
                                     <th>Pago Total</th>
                                     <th>Pago Parcial 1</th>
                                     <th>Pago Parcial 2</th>
-                                    <th>Acciones</th>
                                     <?php
-                                if($cargo_session=="Administrador"){
+                                    if($cargo_session=="Prefect@"){
                                     ?>
-                                    <th>Seleccion</th>
+                                    <?php
+                                    }if($cargo_session=="Alumno"){
+                                    ?>
+                                    <th>Acciones</th>
+                                    <th>Completar</th>
+                                    <?php
+                                    }if($cargo_session=="Administrador"){
+                                    ?>
+                                    <th>Acciones</th>
+                                    <th>Selección</th>
                                     <?php } ?>
                                 </tr>
                             </thead>
                             <?php
                             $contar_participante =0;
-                              $consulta_participante = $pdo->prepare("SELECT * FROM participantes WHERE estado = '2'");
+                            if($cargo_session=="Administrador"){
+                                $consulta_participante = $pdo->prepare("SELECT * FROM participantes WHERE  estado = '2'");
+                              }if($cargo_session=="Alumno"){
+                                  $consulta_participante = $pdo->prepare("SELECT * FROM participantes WHERE email='$user_session' AND estado = '2'");
+                              }if($cargo_session=="Prefect@"){
+                                  $consulta_participante = $pdo->prepare("SELECT * FROM participantes WHERE estado = '2'");
+                              }
                               $consulta_participante->execute();
                               $participantes = $consulta_participante->fetchAll(PDO::FETCH_ASSOC);
                               foreach ($participantes as $participante){
@@ -160,8 +174,6 @@ include('../layout/menu.php');
                                 $pago_total = $participante['pago_total'];
                                 $pago_parcial1 = $participante['pago_parcial1'];
                                 $pago_parcial2 = $participante['pago_parcial2'];
-
-
                                 
                                 $contar_participante = $contar_participante +1;
                                 ?>
@@ -260,31 +272,62 @@ include('../layout/menu.php');
                                       ?>
                                 </td>
 
-                                <th>
+                                <?php
+                                    if($cargo_session=="Administrador"){
+                                    ?>
+                                <td>
                                     <center>
-                                        <a href="update_evento.php?id=<?php echo $id; ?>"
+                                        <a href="update_participante.php?id_partic=<?php echo $id; ?>"
                                             class="btn btn-success btn-sm"><span
                                                 class="fa-solid fa-pen-to-square"></span>
                                             Editar</a>
                                         |
-                                        <a href="delete_evento.php?id=<?php echo $id; ?>"
+                                        <a href="delete_participante.php?id_partic=<?php echo $id; ?>"
                                             class="btn btn-danger btn-sm"><span
                                                 class="fa-solid fa-trash"></span>
                                             Eliminar</a>
                                     </center>
-                                </th>
-                                <?php
-                                if($cargo_session=="Administrador"){
+                                <td>
+                                    <?php
+                                    }if($cargo_session=="Alumno"){
                                     ?>
                                 <td>
+                                    <center>
+                                        <a href="delete_participante.php?id_partic=<?php echo $id; ?>"
+                                            class="btn btn-danger btn-sm"><span
+                                                class="fa-solid fa-trash"></span>
+                                            Eliminar</a>
+                                    </center>
+                                <td>
+
+                                    <?php   } ?>
+
+
+                                    <?php
+                                if($cargo_session=="Administrador"){
+                                    ?>
+
                                     <center>
                                         <a href="cancel_participante.php?id_particcancel=<?php echo $id; ?>"
                                             class="btn btn-danger btn-sm"><span
                                                 class="fa-solid fa-pen-to-square"></span>
                                             Cancelar Participante</a>
                                     </center>
-                                </td>
-                                <?php   } ?>
+                                    <?php
+                                    }if($cargo_session=="Prefect@"){
+                                    ?>
+                                    <?php
+                                    }if($cargo_session=="Alumno"){
+                                    ?>
+
+                                    <a href="update_participante.php?id_partic=<?php echo $id; ?>"
+                                        class="btn btn-success btn-sm"><span
+                                            class="fa-solid fa-pen-to-square"></span>
+                                        Subir Pago</a>
+                                    </center>
+
+                                    <?php   } ?>
+
                             </tr>
                             <?php
                               }

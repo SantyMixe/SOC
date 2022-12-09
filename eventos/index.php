@@ -40,7 +40,7 @@ if (isset($_SESSION['u_user'])) {
         <div
             class="preloader flex-column justify-content-center align-items-center">
             <img class="animation__wobble"
-                src="<?php echo $URL; ?>/app/template/dist/img/AdminLTELogo.png"
+                src="<?php echo $URL; ?>/app/template/dist/img/unedl.png"
                 alt="AdminLTELogo" height="60" width="60">
         </div>
 
@@ -128,8 +128,8 @@ include('../layout/menu.php');
                                     <th>Nº</th>
                                     <th>Evento</th>
                                     <th>Tema</th>
-                                    <th>Descripcion</th>
-                                    <th>Nombre Tallerista</th>
+                                    <th>Descripción</th>
+                                    <th>Ponente</th>
                                     <th>Cupos</th>
                                     <th>Poster</th>
                                     <th>Acciones</th>
@@ -198,7 +198,7 @@ include('../layout/menu.php');
                                         
                                           ?>
                                     <center><img
-                                            src="<?php echo $URL;?>public/img/perfil.png"
+                                            src="<?php echo $URL;?>public/img/conferencia.png"
                                             width="30px" alt=""></center>
                                     <?php
                                         }

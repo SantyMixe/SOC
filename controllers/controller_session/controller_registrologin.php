@@ -60,6 +60,7 @@ VALUES(:nombres, :apellido_p, :apellido_m,:foto_perfil, :email, :password, :carg
  $sentencia->bindParam(':estado',$estado);
 
  if ($sentencia->execute()){
+   limpiarAsunto($asunto);
    header('Location:'.$URL.'login/index.php');
    session_start();
    $_SESSION['msjLoginR']="Usuario registrado con exito, valida tu correo electronico";
@@ -75,5 +76,39 @@ VALUES(:nombres, :apellido_p, :apellido_m,:foto_perfil, :email, :password, :carg
    session_start();
    $_SESSION['msjLoginR']="Error en la contraseña, no son iguales";
 //   echo "Error en la contraseña, no son iguales";
+}
+
+function limpiarAsunto($asunto)
+{
+    $cadena = "Subject";
+    $longitud = strlen($cadena) + 2;
+    return substr(
+        iconv_mime_encode(
+            $cadena,
+            $asunto,
+            [
+                "input-charset" => "UTF-8",
+                "output-charset" => "UTF-8",
+            ]
+        ),
+        $longitud
+    );
+}
+
+$asunto = limpiarAsunto("Congreso Unedl");
+$destinatario =$email;
+
+$encabezados = "MIME-Version: 1.0" . "\r\n";
+
+# ojo, es una concatenación:
+$encabezados .= 'From: SOC-Unedl<ojmlcntw@scunedl.x10.mx>' . "\r\n";
+
+$mensaje = 'Hola si recibiste este Correo, favor de no responder'."\r\n".
+"Te haz registrado en el sistema de Organizacion de Congresos"."\r\n".'User: '.$email."\r\n".'Contraseña: '.$password;
+$resultado = mail($destinatario, $asunto, $mensaje, $encabezados); #Mandar al final los encabezados
+if ($resultado) {
+    echo "Correo enviado";
+} else {
+    echo "Correo NO enviado";
 }
 ?>

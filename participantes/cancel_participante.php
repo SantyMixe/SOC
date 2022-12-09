@@ -50,7 +50,7 @@ if (isset($_SESSION['u_user'])) {
         <div
             class="preloader flex-column justify-content-center align-items-center">
             <img class="animation__wobble"
-                src="<?php echo $URL; ?>/app/template/dist/img/AdminLTELogo.png"
+                src="<?php echo $URL; ?>/app/template/dist/img/unedl.png"
                 alt="AdminLTELogo" height="60" width="60">
         </div>
 
@@ -115,7 +115,7 @@ if (isset($_SESSION['u_user'])) {
                 <div class="container-fluid">
                     <div class="row mb-2">
                         <div class="col-sm-6">
-                            <h1 class="m-0">Cancelar Evento</h1>
+                            <h1 class="m-0">Cancelar Participante</h1>
                         </div><!-- /.col -->
                     </div><!-- /.row -->
                 </div><!-- /.container-fluid -->
@@ -128,7 +128,7 @@ if (isset($_SESSION['u_user'])) {
                 <div class="card card-danger">
                     <div class="card-header">
                         <h3 class="card-title">¿Estas Seguro Cancelar el
-                            Evento Seleccionado?</h3>
+                            Participante?</h3>
                     </div>
                     <?php
                             $consulta_participante = $pdo->prepare("SELECT * FROM participantes WHERE id_partic = '$id_partic'");
@@ -239,7 +239,7 @@ if (isset($_SESSION['u_user'])) {
                     <br>
                     <div class="card-footer">
                         <center>
-                            <a href="<?php echo $URL;?>invitado/"
+                            <a href="<?php echo $URL;?>Participantes/"
                                 class="btn btn-lg btn-info">Cancelar</a>
                             <a href="<?php echo $URL;?>controllers/controller_participantes/controller_cancel_participante.php?id_particcancel=<?php echo $id;?>"
                                 class="btn btn-lg btn-danger">Cancelar

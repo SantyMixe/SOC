@@ -49,7 +49,7 @@ if (isset($_SESSION['u_user'])) {
         <div
             class="preloader flex-column justify-content-center align-items-center">
             <img class="animation__wobble"
-                src="<?php echo $URL; ?>/app/template/dist/img/AdminLTELogo.png"
+                src="<?php echo $URL; ?>/app/template/dist/img/unedl.png"
                 alt="AdminLTELogo" height="60" width="60">
         </div>
 
@@ -163,9 +163,25 @@ if (isset($_SESSION['u_user'])) {
                                     <label for=""
                                         class="col-sm-4 col-form-label">Evento</label>
                                     <div class="col-sm-8">
-                                        <input type="text" class="form-control"
-                                            name="evento" required
-                                            value="<?php echo $evento; ?>">
+                                        <select class="form-control select2bs4"
+                                            style="width: 100%;" name="evento"
+                                            required>
+                                            <option
+                                                value="<?php echo $evento; ?>"
+                                                selected>
+                                                <?php echo $evento; ?>
+
+                                            </option>
+                                            <option value="Conferencia">
+                                                Conferencia</option>
+                                            <option value="Taller">Taller
+                                            </option>
+                                            <option value="Seminario">Seminario
+                                            </option>
+                                            <option value="Conferencia">
+                                                Conferencia
+                                            </option>
+                                        </select>
                                     </div>
                                 </div>
 
@@ -234,7 +250,7 @@ if (isset($_SESSION['u_user'])) {
                                 </div>
                                 <div class="form-group row">
                                     <label for=""
-                                        class="col-sm-4 col-form-label">Ubicacion</label>
+                                        class="col-sm-4 col-form-label">Ubicación</label>
                                     <div class="col-sm-8">
                                         <input type="text" class="form-control"
                                             name="ubicacion"
@@ -247,23 +263,11 @@ if (isset($_SESSION['u_user'])) {
                                 <div class="form-group row">
                                     <label for="exampleInputFile"
                                         class="col-sm-4 col-form-label">Pago
-                                        Total</label>
-                                    <div class="col-sm-8">
-                                        <input type="file" class="form-control"
-                                            id="file" name="file"
-                                            value="<?php echo $ubicacion; ?>">
-                                        <center><br><output id="list"></output>
-                                        </center>
-                                    </div>
-                                </div>
-                                <div class="form-group row">
-                                    <label for="exampleInputFile"
-                                        class="col-sm-4 col-form-label">Pago
                                         Parcial 1</label>
                                     <div class="col-sm-8">
                                         <input type="file" class="form-control"
                                             id="file1" name="file1"
-                                            value="<?php echo $ubicacion; ?>">
+                                            value="<?php echo $pago_parcial1; ?>">
                                         <center><br><output id="list1"></output>
                                         </center>
                                     </div>
@@ -277,6 +281,18 @@ if (isset($_SESSION['u_user'])) {
                                             id="file2" name="file2"
                                             value="<?php echo $pago_parcial2; ?>">
                                         <center><br><output id="list2"></output>
+                                        </center>
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label for="exampleInputFile"
+                                        class="col-sm-4 col-form-label">Pago
+                                        Total</label>
+                                    <div class="col-sm-8">
+                                        <input type="file" class="form-control"
+                                            id="file" name="file"
+                                            value="<?php echo $pago_total; ?>">
+                                        <center><br><output id="list"></output>
                                         </center>
                                     </div>
                                 </div>

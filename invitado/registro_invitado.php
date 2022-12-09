@@ -3,6 +3,7 @@
 include ('../app/config/config.php');
 session_start();
 //echo $URL;
+$id_convoc = $_GET['id'];
 ?>
 
 <!DOCTYPE html>
@@ -23,7 +24,7 @@ session_start();
             class="main-header navbar navbar-expand-lg navbar-light navbar-dark">
             <div class="container">
                 <a href="<?php echo $URL; ?>" class="navbar-brand">
-                    <img src="<?php echo $URL; ?>/app/template/dist/img/AdminLTELogo.png"
+                    <img src="<?php echo $URL; ?>/app/template/dist/img/unedl.png"
                         alt="AdminLTE Logo"
                         class="brand-image img-circle elevation-3"
                         style="opacity: .8">
@@ -93,6 +94,17 @@ session_start();
                             <h3 class="card-title">Registro Invitado</h3>
                         </div>
                         <!-- /.card-header -->
+                        <?php                          
+                              $consulta_Convoc = $pdo->prepare("SELECT * FROM convocatoria WHERE id_convocatoria = '$id_convoc'");
+                              $consulta_Convoc->execute();
+                              $Convocatorias = $consulta_Convoc->fetchAll(PDO::FETCH_ASSOC);
+                              foreach ($Convocatorias as $Convocatoria){
+                                
+                                $id = $Convocatoria['id_convocatoria'];
+                                $tipoe = $Convocatoria['tipo_evento'];
+
+                              }
+                                ?>
                         <!-- form start -->
                         <form class="form-horizontal"
                             action="<?php echo $URL; ?>controllers/controller_invitado/controller_invitadoCreate.php"
@@ -107,8 +119,9 @@ session_start();
                                         <div class="col-sm-8">
                                             <input type="text"
                                                 class="form-control"
-                                                name="tipoe" value="Congreso"
-                                                required>
+                                                name="tipoe"
+                                                value="<?php echo $tipoe; ?>"
+                                                readonly>
                                         </div>
                                     </div>
                                     <div class="form-group row">

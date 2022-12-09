@@ -37,7 +37,7 @@ foreach ($session_users as $sesion_user){
         <div
             class="preloader flex-column justify-content-center align-items-center">
             <img class="animation__wobble"
-                src="<?php echo $URL; ?>/app/template/dist/img/AdminLTELogo.png"
+                src="<?php echo $URL; ?>/app/template/dist/img/unedl.png"
                 alt="AdminLTELogo" height="60" width="60">
         </div>
 
@@ -128,6 +128,7 @@ foreach ($session_users as $sesion_user){
                 $nametallerista = $cardtaller['nombre_tallerista'];
                 $requesitos = $cardtaller['herramientas'];
                 $ubicacion = $cardtaller['ubicacion'];
+                $cupos = $cardtaller['cupos'];
                 ?>
                         <!-- /.col-md-6 -->
                         <div class="col-lg-4">
@@ -149,7 +150,7 @@ foreach ($session_users as $sesion_user){
                                         ?>
                                     <center><img class="card-img-top"
                                             src="<?php echo $URL;?>controllers/posters/<?php echo $poster;?>"
-                                            style="width: 70%; height: 85%;"
+                                            style="width: 200px; height: 150px;"
                                             alt="">
                                     </center>
                                     <?php
@@ -157,8 +158,9 @@ foreach ($session_users as $sesion_user){
                                         
                                           ?>
                                     <center><img
-                                            src="<?php echo $URL;?>public/img/perfil.png"
-                                            width="30px" alt=""></center>
+                                            src="<?php echo $URL;?>public/img/conferencia.png"
+                                            style="width: 200px; height: 150px;"
+                                            alt=""></center>
                                     <?php
                                         }
                                       ?>
@@ -179,6 +181,14 @@ foreach ($session_users as $sesion_user){
                                     </h6><br>
                                     <h6 class="card-title">Ubicacion:
                                         <?php echo " ". $ubicacion;?>
+                                    </h6><br>
+                                    <?php
+                                    $contar_tema = $pdo->prepare("SELECT count(*) from participantes WHERE tema_selec = '$tema'");
+                                    $contar_tema->execute();
+                                        $temas = $contar_tema->fetchColumn();
+                                    ?>
+                                    <h6 class="card-title">Cupos:
+                                        <?php echo " ". $cupos."/ ".$temas;?>
                                     </h6><br><br>
                                     <a href="<?php echo $URL;?>participantes/registro_participante.php?id=<?php echo $id; ?>"
                                         class="btn btn-success float-right">Seleccionar

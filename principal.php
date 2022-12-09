@@ -37,7 +37,7 @@ foreach ($session_users as $sesion_user){
         <div
             class="preloader flex-column justify-content-center align-items-center">
             <img class="animation__wobble"
-                src="<?php echo $URL; ?>/app/template/dist/img/AdminLTELogo.png"
+                src="<?php echo $URL; ?>/app/template/dist/img/unedl.png"
                 alt="AdminLTELogo" height="60" width="60">
         </div>
 
@@ -102,7 +102,8 @@ foreach ($session_users as $sesion_user){
                 <div class="container-fluid">
                     <div class="row mb-2">
                         <div class="col-sm-6">
-                            <h1 class="m-0">Sistema Congreso</h1>
+                            <h1 class="m-0">Sistema para la Organización de
+                                Congresos</h1>
                         </div><!-- /.col -->
                     </div><!-- /.row -->
                 </div><!-- /.container-fluid -->
@@ -114,7 +115,7 @@ foreach ($session_users as $sesion_user){
                 <div class="card">
                     <div class="row ">
                         <?php
-            $card = $pdo->prepare("SELECT * FROM tema_taller  WHERE tema_taller.tipo='Taller' AND tema_taller.tipo='Seminario' OR estado ='1'");
+            $card = $pdo->prepare("SELECT * FROM tema_taller  WHERE tipo <>'Conferencia' AND estado ='1'");
             $card->execute();            
             $cards = $card->fetchAll(PDO::FETCH_ASSOC);
             foreach ($cards as $cardtaller){
@@ -128,6 +129,7 @@ foreach ($session_users as $sesion_user){
                 $nametallerista = $cardtaller['nombre_tallerista'];
                 $requesitos = $cardtaller['herramientas'];
                 $ubicacion = $cardtaller['ubicacion'];
+                $cupos = $cardtaller['cupos'];
                 ?>
                         <!-- /.col-md-6 -->
                         <div class="col-lg-4">
@@ -156,8 +158,9 @@ foreach ($session_users as $sesion_user){
                                         
                                           ?>
                                     <center><img
-                                            src="<?php echo $URL;?>public/img/perfil.png"
-                                            width="30px" alt=""></center>
+                                            src="<?php echo $URL;?>public/img/conferencia.png"
+                                            style="width: 200px; height: 150px;"
+                                            alt=""></center>
                                     <?php
                                         }
                                       ?>
@@ -167,7 +170,7 @@ foreach ($session_users as $sesion_user){
                                     <p class="card-text">
                                         <?php echo $descripcion;?>
                                     </p>
-                                    <p class="card-text">Requesitos:
+                                    <p class="card-text">Requisitos:
                                         <?php echo" ". $requesitos;?>
                                     </p>
                                     <h6 class="card-title">Horario Entrada:
@@ -176,14 +179,39 @@ foreach ($session_users as $sesion_user){
                                     <h6 class="card-title">Horario Salida:
                                         <?php echo " ". $horarioS;?>
                                     </h6><br>
-                                    <h6 class="card-title">Ubicacion:
+                                    <h6 class="card-title">Ubicación:
                                         <?php echo " ". $ubicacion;?>
+                                    </h6><br>
+                                    <?php
+                                    $contar_tema = $pdo->prepare("SELECT count(*) from participantes WHERE tema_selec = '$tema'and estado <> '0'");
+                                    $contar_tema->execute();
+                                        $temas = $contar_tema->fetchColumn();
+                                    ?>
+                                    <h6 class="card-title">Cupos:
+                                        <?php echo " ". $cupos."/ ".$temas;?>
                                     </h6>
+
                                     <br>
                                     <br>
+                                    <?php
+                                        if($cupos == $temas){
+                                        ?>
+                                    <h6 class="btn btn-danger float-right">Cupo
+                                        lleno</h6>
+                                    <?php
+                                        }elseif($temas<$cupos){                                        
+                                        ?>
                                     <a href="<?php echo $URL;?>participantes/registro_participante.php?id=<?php echo $id; ?>"
                                         class="btn btn-success float-right">Seleccionar
                                         <?php echo $evento;?></a>
+                                    <?php    
+                                        }else{
+                                            ?>
+                                    <h6 class="btn btn-danger float-right">Cupo
+                                        lleno</h6>
+                                    <?php
+                                        }
+                                        ?>
                                 </div>
                             </div>
                             <br>

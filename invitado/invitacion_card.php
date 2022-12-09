@@ -11,7 +11,7 @@ include ('../app/config/config.php');
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Bienvenido</title>
+    <title>Bienvenido a SOC-Unedl</title>
     <?php include('../layout/head.php'); ?>
 </head>
 
@@ -23,11 +23,11 @@ include ('../app/config/config.php');
             class="main-header navbar navbar-expand-lg navbar-light navbar-dark">
             <div class="container">
                 <a href="<?php echo $URL; ?>" class="navbar-brand">
-                    <img src="<?php echo $URL; ?>/app/template/dist/img/AdminLTELogo.png"
+                    <img src="<?php echo $URL; ?>/app/template/dist/img/unedl.png"
                         alt="AdminLTE Logo"
                         class="brand-image img-circle elevation-3"
                         style="opacity: .8">
-                    <span class="brand-text font-weight-light">UNEDL</span>
+                    <span class="brand-text font-weight-light">SOC-Unedl</span>
                 </a>
 
                 <button class="navbar-toggler order-1" type="button"
@@ -76,7 +76,8 @@ include ('../app/config/config.php');
                 <div class="">
                     <div class="row mb-2">
                         <div class="col-sm-6">
-                            <h1 class="m-0"> Bienvenido al Congreso</h1>
+                            <h1 class="m-0"> Sistema para la Organización de
+                                Congresos</h1>
                         </div><!-- /.col -->
                     </div><!-- /.row -->
                 </div><!-- /.container-fluid -->
@@ -121,7 +122,7 @@ include ('../app/config/config.php');
                                         ?>
                                     <center><img class="card-img-top"
                                             src="<?php echo $URL;?>controllers/controller_convocatorio/imgConvocatorio/<?php echo $img_convo;?>"
-                                            style="width: 70%; height: 85%;"
+                                            style="width: 200px; height: 150px;"
                                             alt="">
                                     </center>
                                     <?php
@@ -129,8 +130,9 @@ include ('../app/config/config.php');
                                         
                                           ?>
                                     <center><img
-                                            src="<?php // echo $URL;?>public/img/perfil.png"
-                                            width="30px" alt=""></center>
+                                            src="<?php echo $URL;?>public/img/convocatoria.png"
+                                            style="width: 200px; height: 150px;"
+                                            alt=""></center>
                                     <?php
                                         }
                                       ?>
@@ -145,7 +147,7 @@ include ('../app/config/config.php');
                                         <?php echo" ". $fecha;?>
                                     </p>
 
-                                    <a href="<?php echo $URL;?>invitado/registro_invitado.php"
+                                    <a href="<?php echo $URL;?>invitado/registro_invitado.php?id=<?php echo $id; ?>"
                                         class="btn btn-primary float-right">Enviar
                                         Datos</a>
                                 </div>

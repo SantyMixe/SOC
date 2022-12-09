@@ -49,7 +49,7 @@ if (isset($_SESSION['u_user'])) {
         <div
             class="preloader flex-column justify-content-center align-items-center">
             <img class="animation__wobble"
-                src="<?php echo $URL; ?>/app/template/dist/img/AdminLTELogo.png"
+                src="<?php echo $URL; ?>/app/template/dist/img/unedl.png"
                 alt="AdminLTELogo" height="60" width="60">
         </div>
 
@@ -156,7 +156,8 @@ if (isset($_SESSION['u_user'])) {
                                     <div class="col-sm-8">
                                         <input type="text" class="form-control"
                                             name="evento"
-                                            value="<?php echo $tipo; ?>">
+                                            value="<?php echo $tipo; ?>"
+                                            readonly>
                                     </div>
                                 </div>
                                 <div class="form-group row">
@@ -166,7 +167,8 @@ if (isset($_SESSION['u_user'])) {
                                     <div class="col-sm-8">
                                         <input type="text" class="form-control"
                                             name="tema"
-                                            value="<?php echo $tema; ?>">
+                                            value="<?php echo $tema; ?>"
+                                            readonly>
                                     </div>
                                 </div>
                                 <div class="form-group row">
@@ -175,7 +177,8 @@ if (isset($_SESSION['u_user'])) {
                                     <div class="col-sm-8">
                                         <input type="text" class="form-control"
                                             name="nombres"
-                                            value="<?php echo $nombre_session; ?>">
+                                            value="<?php echo $nombre_session; ?>"
+                                            readonly>
                                     </div>
                                 </div>
                                 <div class="form-group row">
@@ -185,7 +188,8 @@ if (isset($_SESSION['u_user'])) {
                                     <div class="col-sm-8">
                                         <input type="text" class="form-control"
                                             name="apellido_p"
-                                            value="<?php echo $apellidoP_session; ?>">
+                                            value="<?php echo $apellidoP_session; ?>"
+                                            readonly>
                                     </div>
                                 </div>
                                 <div class="form-group row">
@@ -195,7 +199,19 @@ if (isset($_SESSION['u_user'])) {
                                     <div class="col-sm-8">
                                         <input type="text" class="form-control"
                                             name="apellido_m"
-                                            value="<?php echo $apellidoM_session; ?>">
+                                            value="<?php echo $apellidoM_session; ?>"
+                                            readonly>
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label for=""
+                                        class="col-sm-4 col-form-label">Correo
+                                        Electronico</label>
+                                    <div class="col-sm-8">
+                                        <input type="text" class="form-control"
+                                            name="email"
+                                            value="<?php echo $user_session; ?>"
+                                            readonly>
                                     </div>
                                 </div>
 
@@ -206,7 +222,8 @@ if (isset($_SESSION['u_user'])) {
                                     <div class="col-sm-8">
                                         <input type="text" class="form-control"
                                             name="horario"
-                                            value="<?php echo $horario_entrada; ?>">
+                                            value="<?php echo $horario_entrada; ?>"
+                                            readonly>
                                     </div>
                                 </div>
                                 <div class="form-group row">
@@ -215,22 +232,12 @@ if (isset($_SESSION['u_user'])) {
                                     <div class="col-sm-8">
                                         <input type="text" class="form-control"
                                             name="ubicacion"
-                                            value="<?php echo $ubicacion; ?>">
+                                            value="<?php echo $ubicacion; ?>"
+                                            readonly>
                                     </div>
                                 </div>
                             </div>
                             <div class=" col-md-6">
-                                <div class="form-group row">
-                                    <label for="exampleInputFile"
-                                        class="col-sm-4 col-form-label">Pago
-                                        Total</label>
-                                    <div class="col-sm-8">
-                                        <input type="file" class="form-control"
-                                            id="file" name="file" value="">
-                                        <center><br><output id="list"></output>
-                                        </center>
-                                    </div>
-                                </div>
                                 <div class="form-group row">
                                     <label for="exampleInputFile"
                                         class="col-sm-4 col-form-label">Pago
@@ -251,6 +258,17 @@ if (isset($_SESSION['u_user'])) {
                                         <input type="file" class="form-control"
                                             id="file2" name="file2" value="">
                                         <center><br><output id="list2"></output>
+                                        </center>
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label for="exampleInputFile"
+                                        class="col-sm-4 col-form-label">Pago
+                                        Total</label>
+                                    <div class="col-sm-8">
+                                        <input type="file" class="form-control"
+                                            id="file" name="file" value="">
+                                        <center><br><output id="list"></output>
                                         </center>
                                     </div>
                                 </div>

@@ -19,7 +19,7 @@ session_start();
         <div class="card card-outline card-primary">
             <div class="card-header text-center">
                 <a href="<?php echo $URL; ?>index.php"
-                    class="h1"><b>Sistema</b>&nbsp;Congreso</a>
+                    class="h1"><b>SOC-Unedl</b></a>
             </div>
             <div class="card-body">
                 <p class=" h3 login-box-msg">Registrar</p>

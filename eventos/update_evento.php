@@ -49,7 +49,7 @@ if (isset($_SESSION['u_user'])) {
         <div
             class="preloader flex-column justify-content-center align-items-center">
             <img class="animation__wobble"
-                src="<?php echo $URL; ?>/app/template/dist/img/AdminLTELogo.png"
+                src="<?php echo $URL; ?>/app/template/dist/img/unedl.png"
                 alt="AdminLTELogo" height="60" width="60">
         </div>
 
@@ -193,7 +193,7 @@ if (isset($_SESSION['u_user'])) {
                                 </div>
                                 <div class="form-group row">
                                     <label for=""
-                                        class="col-sm-4 col-form-label">Descripcion</label>
+                                        class="col-sm-4 col-form-label">Descripción</label>
                                     <div class="col-sm-8">
                                         <textarea class="form-control"
                                             name="descripcion" id="" cols=""
@@ -270,7 +270,7 @@ if (isset($_SESSION['u_user'])) {
                             <div class="col-md-6">
                                 <div class="form-group row">
                                     <label for=""
-                                        class="col-sm-4 col-form-label">Requesitos</label>
+                                        class="col-sm-4 col-form-label">Requisitos</label>
                                     <div class="col-sm-8">
                                         <textarea class="form-control"
                                             name="herramienta" id="" cols=""

@@ -40,7 +40,7 @@ if (isset($_SESSION['u_user'])) {
         <div
             class="preloader flex-column justify-content-center align-items-center">
             <img class="animation__wobble"
-                src="<?php echo $URL; ?>/app/template/dist/img/AdminLTELogo.png"
+                src="<?php echo $URL; ?>/app/template/dist/img/unedl.png"
                 alt="AdminLTELogo" height="60" width="60">
         </div>
 
@@ -116,7 +116,7 @@ include('../layout/menu.php');
             <section class="content">
                 <div class="card">
                     <div class="card-header">
-                        <h3 class="card-title">Listado Invitacion
+                        <h3 class="card-title">Listado Invitación
                         </h3>
                     </div>
                     <!-- /.card-header -->
@@ -127,9 +127,9 @@ include('../layout/menu.php');
                                 <tr>
                                     <th>Nº</th>
                                     <th>Tipo Evento</th>
-                                    <th>Descripcion</th>
-                                    <th>Ubicacion</th>
-                                    <th>Telefono</th>
+                                    <th>Descripción</th>
+                                    <th>Ubicación</th>
+                                    <th>Teléfono</th>
                                     <th>Fecha Evento</th>
                                     <th>Imagen Evento</th>
                                     <th>Acciones</th>
@@ -183,13 +183,13 @@ include('../layout/menu.php');
                                         ?>
                                     <center><img
                                             src="<?php echo $URL;?>controllers/controller_convocatorio/imgConvocatorio/<?php echo $img_convo;?>"
-                                            width="50px" alt=""></center>
+                                            width="30px" alt=""></center>
                                     <?php
                                       }else {
                                         
                                           ?>
                                     <center><img
-                                            src="<?php echo $URL;?>public/img/perfil.png"
+                                            src="<?php echo $URL;?>public/img/convocatoria.png"
                                             width="30px" alt=""></center>
                                     <?php
                                         }

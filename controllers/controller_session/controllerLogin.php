@@ -2,9 +2,6 @@
 
 include ('../../app/config/config.php');
 
-
-
-
 $correo = $_POST['email'];
 $password = $_POST['password'];
 

@@ -8,6 +8,7 @@ $tema_select = $_POST['tema'];
 $nombres = $_POST['nombres'];
 $apellido_p = $_POST['apellido_p'];
 $apellido_m = $_POST['apellido_m'];
+$email = $_POST['email'];
 $horario = $_POST['horario'];
 $ubicacion = $_POST['ubicacion'];
 $estado = '1';
@@ -51,8 +52,8 @@ move_uploaded_file($_FILES['file2']['tmp_name'],$location);
  //consulta a la bade de datos
  $sentencia = $pdo->prepare(
     'INSERT INTO participantes
-       (evento, tema_selec, nombres,apellido_p, apellido_m, horario, ubicacion, pago_total, pago_parcial1,pago_parcial2, estado)
-VALUES(:evento, :tema_selec, :nombres, :apellido_p, :apellido_m, :horario, :ubicacion, :pago_total, :pago_parcial1, :pago_parcial2, :estado)');
+       (evento, tema_selec, nombres,apellido_p, apellido_m, email, horario, ubicacion, pago_total, pago_parcial1,pago_parcial2, estado)
+VALUES(:evento, :tema_selec, :nombres, :apellido_p, :apellido_m, :email, :horario, :ubicacion, :pago_total, :pago_parcial1, :pago_parcial2, :estado)');
 
 //Agrega a la base de datos
 $sentencia->bindParam(':evento',$evento);
@@ -60,6 +61,7 @@ $sentencia->bindParam(':tema_selec',$tema_select);
  $sentencia->bindParam(':nombres',$nombres);
  $sentencia->bindParam(':apellido_p',$apellido_p);
  $sentencia->bindParam(':apellido_m',$apellido_m);
+ $sentencia->bindParam(':email',$email);
  $sentencia->bindParam(':horario',$horario);
  $sentencia->bindParam(':ubicacion',$ubicacion);
  $sentencia->bindParam(':pago_total',$filename);
